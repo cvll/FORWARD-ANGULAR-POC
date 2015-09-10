@@ -1,0 +1,22 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#map {
+	width: 500px;
+	height: 500px;
+}
+
+#tbl {
+	position: relative;
+	top: -500px;
+	left: 500px;
+    border: 1px solid black;
+}
+
+th,td {
+    border: 1px solid black;	
+}
+.angular-google-map-container { height: 400px; }

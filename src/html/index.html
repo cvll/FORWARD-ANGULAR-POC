@@ -1,0 +1,42 @@
+<DOCTYPE html>
+<html>
+	<head>
+		<title> FORWARD ANGULAR </title>
+		<script
+      		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu0o404XjMM1Cf0xxSys43FQf8BrmEGS8">
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+		<script src="../libs/lodash.js"></script>
+		<script src="../js/vdb.js"></script>
+		<script src="../js/gmap.js"></script>
+		<script src="../js/index.js"></script>
+	</head>
+	<body>
+		<div ng-app="app" ng-controller="appCtrl">
+		<label>Car Type</label>
+		<select ng-model="carType">
+			<option ng-repeat="type in CAR_TYPES">{{type}}</option>
+		</select>
+		<label>Car Weight ></label>
+		<select ng-model="carWeight">
+			<option ng-repeat="weight in CAR_WEIGHTS">{{weight}}</option>
+		</select>
+		<label>Car Size</label>
+		<select ng-model="carSize">
+			<option ng-repeat="size in CAR_SIZES">{{size}}</option>
+		</select>
+		<gmap locations='_locations'></gmap>
+		<table id="tbl">
+			<tr ng-repeat="row in data | filter: {visibility: true}" >
+				<td>{{ row.id }}</td>
+				<td>{{ row.loc }}</td>
+				<td>{{ row.type }}</td>
+				<td>{{ row.weight }}</td>
+				<td>{{ row.size }}</td>
+				<td>{{ row.visibility }}</td>
+			</tr>
+		</table>
+		</div>
+	</body>
+		<link rel="stylesheet" type="text/css" href="../css/index.css">
+</html>

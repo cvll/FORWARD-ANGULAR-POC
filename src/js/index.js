@@ -28,14 +28,17 @@ app.controller('appCtrl',['$scope','$interval','dataHandler','gmapFactory',funct
 	$scope.carType ='All';
 	$scope.carWeight = '0';
 	$scope.carSize = 'All';
-
-
+      
       // Accumulated data
 	$scope.data = dataHandler.data;
-      
+      $scope.dataJSON = JSON.stringify($scope.data);
+
       // init location data
       $scope._locations = createLocations($scope.data);
-      
+
+      $scope.update = function () {
+            $scope.data = JSON.parse($scope.dataJSON);
+      }
       
       
       // Triggers when something about the data is changed
@@ -61,5 +64,5 @@ app.controller('appCtrl',['$scope','$interval','dataHandler','gmapFactory',funct
     $interval(function() {
       dataHandler.refresh($scope.data);
 
-     }, 200);
+     }, 3000);
 }]);

@@ -25,6 +25,10 @@
 		<select ng-model="carSize">
 			<option ng-repeat="size in CAR_SIZES">{{size}}</option>
 		</select>
+		<form>
+			<textarea ng-model="dataJSON" ng-change="update()" rows="15" cols="140">{{ dataJSON }}</textarea>
+			<input ng-click="update()" type="button" value="Update It!"></button>
+		</form>
 		<gmap locations='_locations'></gmap>
 		<table id="tbl">
 			<tr ng-repeat="row in data | filter: {visibility: true}" >
